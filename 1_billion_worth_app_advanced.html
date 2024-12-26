@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-Billion Worth App</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #111;
+            border-bottom: 1px solid #333;
+        }
+        header h1 {
+            font-size: 24px;
+        }
+        header .night-toggle {
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+        }
+        section {
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .checklist, .mantras {
+            list-style-type: none;
+            padding: 0;
+        }
+        .checklist li, .mantras li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        .white-noise-player {
+            margin-top: 20px;
+        }
+        .chatbot {
+            margin-top: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>1-Billion Worth App</h1>
+        <button class="night-toggle">Night Mode</button>
+    </header>
+    <section>
+        <h2 class="section-title">Psychological Toolkit</h2>
+        <ul class="checklist">
+            <li><input type="checkbox" id="calm"> Stay Calm and Don't React Emotionally</li>
+            <li><input type="checkbox" id="breathe"> Focus on Breathing Slowly and Deeply</li>
+            <li><input type="checkbox" id="visualize"> Visualize a Shield of Positive Energy</li>
+        </ul>
+    </section>
+    <section>
+        <h2 class="section-title">Mantras</h2>
+        <ul class="mantras">
+            <li>I do not give my energy to negativity.</li>
+            <li>This moment will pass. I am in control.</li>
+        </ul>
+    </section>
+    <section class="white-noise-player">
+        <h2 class="section-title">White Noise Player</h2>
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+    <section class="chatbot">
+        <h2 class="section-title">Chatbot</h2>
+        <input type="text" id="chat-input" placeholder="Type your question...">
+        <button id="chat-submit">Submit</button>
+        <div id="chat-response" style="margin-top: 10px; padding: 10px; background-color: #222; border-radius: 5px;"></div>
+    </section>
+    <script>
+        // Night Mode Toggle
+        document.querySelector('.night-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('night-mode');
+            if (document.body.classList.contains('night-mode')) {
+                document.body.style.backgroundColor = '#fff';
+                document.body.style.color = '#000';
+            } else {
+                document.body.style.backgroundColor = '#000';
+                document.body.style.color = '#fff';
+            }
+        });
+
+        // Chatbot Functionality
+        document.querySelector('#chat-submit').addEventListener('click', () => {
+            const input = document.querySelector('#chat-input').value.toLowerCase();
+            const response = document.querySelector('#chat-response');
+            let answer = "Stay calm. Remember to focus on your peace.";
+            if (input.includes("neighbor")) {
+                answer = "Do not engage with your neighbors. Visualize your shield and breathe deeply.";
+            } else if (input.includes("respond")) {
+                answer = "No, avoid responding emotionally. Maintain your calm and focus inward.";
+            } else if (input.includes("breathe")) {
+                answer = "Breathing deeply will help you stay centered. Inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds.";
+            }
+            response.innerHTML = answer;
+        });
+    </script>
+</body>
+</html>
